@@ -1,0 +1,85 @@
+body{
+    background:-moz-linear-gradient(top, #141414, #777);
+	background:-webkit-gradient(linear,left top, left bottom, from(#141414), to(#777));
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#141414',EndColorStr='#777777',GradientType=0);
+    margin:0;
+    /*margin-right:15%;
+    margin-left:15%;   */
+}
+
+.top{
+    width:80%;
+    margin:auto;
+    background-color:#000;
+    padding:10px 50px 10px 50px;
+}
+
+.line {
+    height:30px;
+    width:80%;
+    margin:auto;
+    padding-top: 6px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 0;
+    background:url(../images/design/line.png) left bottom no-repeat #e58900;
+    font-weight: bold;
+}
+
+.content {
+    width:80%;
+    margin:auto;
+    background-color:#FFF;
+    padding:30px 50px 30px 50px;
+    font-family:Nobile, Arial, sans-serif;
+}
+
+.content h1 {
+    color:#0240bb;
+    font-size:32px;
+    text-align:center;
+    padding-bottom:30px;
+}
+
+.content h2 {
+    color:#e58900;
+    font-size:28px;
+}
+
+.content h3 {
+    color:#ffc600;
+    text-shadow:1px 1px 1px #666;
+}
+
+a {
+    color:#05F;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#0AF;
+    text-decoration:underline;
+}
+
+.content ul {
+    list-style-image:url(../images/design/puce.png);
+}
+
+.footer{
+    width:80%;
+    margin:auto;
+    height:100px;
+    padding:20px 50px 20px 50px;
+    background:-moz-linear-gradient(top, #777, #141414);
+	background:-webkit-gradient(linear,left top, left bottom, from(#777), to(#141414));
+	filter:progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#777777',EndColorStr='#141414',GradientType=0);
+}
+
+.footer a {
+    color:#FFF;
+}
+
+.footer a:hover {
+    color:#00F;
+    text-decoration:underline;
+}
