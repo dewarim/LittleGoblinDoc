@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>3.8 Crafting 0.3.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>3.8 Crafting - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+
+                    <p><strong>Version:</strong> 0.3.0</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h2 id="crafting">3.8 Crafting</h2>
+Crafting in games can be defined as the controlled and repeatable creation of items by player characters,
+ based on their personal resources (materials, skills, time).<p class="paragraph"/>The Little Goblin crafting system allows for production of all kinds of items that a character might want to use.
+To create an item, a PC should have a corresponding crafting skill, the material components and the proper tools.
+As with many other online games, crafting takes time - you can define how long it will take a player to create
+an item.<p class="paragraph"/><h3>Tools</h3><p class="paragraph"/>Many crafting systems require the presence of components, but few consider the use of multiple tools for crafting.
+Little Goblin offers the chance to create recipes for items that define what other non-consumable items the player
+(or, later on, his order) has to own to craft a new item.<p class="paragraph"/>At the moment, the quality of tools is not mapped to the crafted item's quality, but that could be an interesting
+ idea for further extensions.<p class="paragraph"/><h3>Production lines</h3><p class="paragraph"/>Currently, a player can start the production of create several items of a each kind, as long as he has the required 
+components to create at least one item of this type. When the required time is up, the code checks if the resources
+are available and then generates the item. 
+So it is possible to start a "create 99 gold-tipped arrows, which requires 10 hours"
+production task while owning only one gold nugget, and then start another process to 
+"create 98 gold nuggets from gold ore in 9 hours"<p class="paragraph"/>Note: Work in progress: The crafting and the skill learning system currently rely on external "ticks", that is http calls
+to the API made by a cron job, which causes specific service classes to check if items are to be generated or skills
+will be learned by characters etc. This is sub-optimal and will be replaced by background-threads in the future.<p class="paragraph"/><h4>Design considerations</h4><p class="paragraph"/>A more "realistic" way would be to subtract the required resources each time an item is generated, but on the other
+hand it is a better system than requiring all resources up front, which would mean that in our example the player has 
+to login after 9 hours, when the 99 gold nuggets are ready, and then create the next 10 hour job of crafting the arrows.
+This leads to unhealthy gaming patterns where players will stay up late or rise early, 
+just to submit a task to an online game on time.<p class="paragraph"/><p class="paragraph"/> 
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>

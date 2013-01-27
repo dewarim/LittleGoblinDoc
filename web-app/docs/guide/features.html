@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>3 Features 0.3.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>3 Features - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+
+                    <p><strong>Version:</strong> 0.3.0</p>
+
+                    
+                </div>
+
+                
+                <div id="table-of-content">
+                    <h2>Table of Contents</h2>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#infrastructure"><strong>3.1</strong><span>Infrastructure</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#game"><strong>3.2</strong><span>The Game</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#combat"><strong>3.3</strong><span>Combat</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#reputation"><strong>3.4</strong><span>Reputation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#skills"><strong>3.5</strong><span>Skills</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#guilds"><strong>3.6</strong><span>Guilds</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#items"><strong>3.7</strong><span>Items</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#crafting"><strong>3.8</strong><span>Crafting</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#orders"><strong>3.9</strong><span>Orders</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#quests"><strong>3.10</strong><span>Quests</span></a>
+                    </div>
+                    
+                </div>
+                
+
+                
+
+<h1 id="features">3 Features</h1>
+Little Goblin already has a lot of features, and more will come. This part of the documentation gives an
+overview over the current project status. A more detailed description of the inner workings will follow
+ in the more technical sections later on.
+
+
+
+<h2 id="infrastructure">3.1 Infrastructure</h2>
+The main goal of the Little Goblin framework is to enable you to quickly turn
+your ideas into a working software project. To this end, the following is provided:<p class="paragraph"/><h3>User registration</h3><p class="paragraph"/>User registration works via sending a confirmation link to the user's email address.
+If the user clicks on the link therein, his account will be activated.<p class="paragraph"/><h3>License management</h3><p class="paragraph"/>Depending on the system's configuration, it's possible to let users create their own content.
+In this case, you really need to get the licensing done right - as well as in the case where
+you use media assets from the public domain (for example, Wikimedia). Often, the artist requires
+ his name to appear in the context of the artwork - and even when there is no such request, it
+ is the right and polite thing to do. And you never know when a lawyer comes a-knocking because
+ someone mistakenly thinks you did use one of their images without permission.<p class="paragraph"/>Little Goblin allows you to create license objects which can be assigned to images (and perhaps
+later on other assets). Currently this is implemented for monster images, which can be tagged with
+a license. TODO: display licenses, not just store them - but at least the artist credit works.<p class="paragraph"/><h3>Artist management</h3><p class="paragraph"/>As with licenses, you can also manage artists in Little Goblin. Currently, when a monster is displayed,
+a link is shown which leads to the artist's web site. An artist may own any number of images associated
+with him. TODO: public display of artist gallery<p class="paragraph"/><h3>Image management</h3><p class="paragraph"/>With the artist and licenses defined, you can assign them to images and those to one or more game assets 
+(at the moment: to monsters). This way, a image can be re-used for more than one creature. While in an
+ideal game, you would use images only exactly once, it may be a way for budget games to re-use them until
+better and more artwork is available.<p class="paragraph"/>More than one image can be assigned to a creature and they will be used randomly, so you can add some 
+visual spice for the users.  
+Also, in the case of unique creatures / mobs of a certain type, it is possible to assign the generic image 
+(for example: when you generate an encounter with a special named mob, it could show up with the image for "Boss mob orc",
+the only difference being the mob's combat values, like in many action RPGs).<p class="paragraph"/><h3>In-Game messaging</h3><p class="paragraph"/><h4>Simple messages</h4><p class="paragraph"/>Little Goblin offers in-game messaging via a simple inbox model. Users can write messages to other characters,
+and reply to them. The messages can be archived or deleted. TODO: implement sent-as-email feature<p class="paragraph"/><h4>Guild's chatterbox</h4><p class="paragraph"/>Guilds offer a special feature: a chatterbox were all guild members can exchange messages in life chat. This
+is intended for non-persistent communication, as older messages will be deleted once the box fills up with new
+chatter.
+
+
+<h2 id="game">3.2 The Game</h2>
+When started with an empty database, Little Goblin can create a ready-to run fantasy game
+with a test account and a few quests, items, monsters and so on, allowing you to test 
+the basic game features.<p class="paragraph"/>The reference implementation is a game that tries to use all the features offered by the framework.
+
+
+
+<h2 id="combat">3.3 Combat</h2>
+Combat in Little Goblin currently is the fight between a player character and a monster or, 
+ in the case of the Grand Melee (see below) between all willing player characters. A fight is started
+ by meeting a monster during a quest encounter. The fight will go on until the player wins, flees or
+ is defeated.<p class="paragraph"/>Combat is round-based. At the moment, the player has the option to 
+<ul class="star">
+<li>use items from his or her inventory</li>
+<li>to attack the opponent</li>
+<li>run away</li>
+</ul><p class="paragraph"/>Running away is always successful and terminates the current quest.
+Attacking uses the currently equipped weapon(s) and passive abilities to determine the effects
+  on the opponent.<p class="paragraph"/><h3>A closeup of a fight</h3><p class="paragraph"/>A round of combat consists of the following steps:
+<ul class="star">
+<li>determine initiative (rolling a d20 at the moment, add bonuses)</li>
+<li>attacker rolls to strike</li>
+<li>defender rolls to parry</li>
+<li>in case of a hit, compute damage from all items that contribute to damage dealt.</li>
+<li>check if both combatants are alive</li>
+<li>counter attack of the defender (strike, parry, deal damage, check result)</li>
+<li>either finish the combat sequence or start a new round</li>
+</ul><p class="paragraph"/><h4>Special damage and mitigation</h4><p class="paragraph"/>Items or a creature's natural abilities may deal special damage (for example, a dragon breathing fire).
+This is included via a damage multiplier, so a dragon may deal fire damage which increases its base
+damage by a factor of 1.2. If this dragon is also for some reason a creature of chaos, it may increase
+the damage further by another factor of 1.3. Likewise, the abilities or items of a fighter may reduce
+the damage dealt by a certain factor. A ring of protection from chaos may reduce damage with chaotic
+influence by a factor of 0.5 (so chaos damage is reduced by 50%).<p class="paragraph"/>Note that in this simple combat model an armor of protection from fire will reduce the  <em class="italic">total</em>  damage, 
+not the percentage of the damage that is actually dealt be heat. So, attacking a creature that is virtually
+immune to fire with a +20 burning sword of fire,death,chaos,poison is not the best strategy.<p class="paragraph"/><h3>The Grand Melee</h3><p class="paragraph"/>The Grand Melee is Highlander-style combat szenario where all participants will fight each other
+until only the winner is left standing. It is round based with a fixed timeout to prevent players
+  from waiting too long before committing to an action. (If a player does not submit an action,
+  his character will attack a random opponent).<p class="paragraph"/>
+
+
+<h2 id="reputation">3.4 Reputation</h2>
+Reputation is the sum off what a group of people have come to expect of you.<p class="paragraph"/>In Little Goblin, you can define factions, which may align on race (Elves, Dwarves) or other
+distinguishing characteristics. If a player character makes a decision during a quest,
+his or her reputation in respect to the affected factions should change.<p class="paragraph"/>If at a later state of the game the character interacts again with factions he has now
+a positive or negative reputation with, the options offered and behaviour displayed 
+should be influenced by this.<p class="paragraph"/>Reputation is not presented as a number to the player, because such a score is not very meaningful.
+For display, a reputation map is used, which contains descriptions for negative and positive
+reputation states. Note that reputation at this point is either positive, neutral or negative -
+the code does not define ambivalent feelings or track the reputation history, so the sentiment "She was once
+ a heroine and a force of good reputation:1000, but she has fallen a long way reputation:0,
+ still we should give her a chance." can currently not be expressed. But then, modeling
+ behaviour of NPCs according to the current reputation is sufficient - the memories of
+ an orcish trader do not need to be longer and more nuanced than that of the average voter.<p class="paragraph"/>Example of a reputation message map which goes from -41 to +41:<p class="paragraph"/><pre class="bq"><code> repMessages = 'unknown': [0,
+               'good': 1, 'very.good': 11, 'very.very.good': 21,  'best': 41,
+               'bad': -1, 'very.bad': -11, 'extremely.bad': -21, 'worst': -41]</code></pre><p class="paragraph"/>Example of reputation messages:<p class="paragraph"/><pre class="bq"><code>    reputation.unknown=We have never heard of you.
+    reputation.good=We like you.
+    reputation.very.good=We think highly of you.
+    reputation.very.very.good=We love you.
+    reputation.best=Our lives are blessed by your very presence.
+    reputation.bad=We dislike you.
+    reputation.very.bad=We hate you.
+    reputation.extremely.bad=We will kill you on sight.
+    reputation.worst=We are going to kill you and leave your for the ravens</code></pre><p class="paragraph"/>(Of course, you can define the messages in a more appropriate way or from a 3rd-person point of view.)
+
+
+
+<h2 id="skills">3.5 Skills</h2>
+Players characters and more generally creatures (mobs) may have skills. 
+Skills can be learned at academies.
+Access to academies requires membership in a guild. In Little Goblin, guilds are
+organizations for all those pursuing a specific trade, like in the middle ages.
+They are  <em class="italic">not</em>  created by the players. Players may create "orders" (in the sense of
+  a military and / or religious organization, for example the Knights Templar).<p class="paragraph"/>Academies like the fighter's guild will offer skills, or more precisely, skill sets.
+A "skill set" is a course which confers a specific skill like "fighting 101" to a player
+character - for a price and requiring a certain amount of time. It is possible to have 
+multiple academies teaching the same skill via differently prices skill sets (courses).
+Skill sets have a required level relevant to the academy that teaches them - so a player
+character may only learn them in a specific order.<p class="paragraph"/>Skills are scriptable: you can associate a class with a skill which will be run when a
+player character learns this skill. The class will receive the PC, the CreatureSkill instance 
+which connects the character with this skill instance and the skill's configuration field as
+parameters. The configuration field is an XML string and may hold initialization values.<p class="paragraph"/><h3>Combat Skills</h3><p class="paragraph"/>Combat skills extend the basic skill class with combat specific fields. Currently, those are Dice objects
+which offer bonuses for:
+<ul class="star">
+<li>strike</li>
+<li>parry</li>
+<li>initiative</li>
+<li>damage</li>
+</ul><p class="paragraph"/><h3>Production Skills</h3><p class="paragraph"/>Production skills extend the basic skill class and allow a player use create new products (items).
+When a PC learns a new production skill, a range of new products may become available for crafting.<p class="paragraph"/>
+
+
+<h2 id="guilds">3.6 Guilds</h2>
+Guilds in Little Goblin represent trade associations, much like the medieval guilds which were created by craftsmen
+seeking to build communities of like-minded professionals. They jealously guard the secrets of their trades and
+seek to create a monopolistic power structure where the only people who are allowed to practice (and capable, due 
+to the control of information) the trade, are those who belong to the guild.<p class="paragraph"/>In game terms, a player character who wishes to learn a craft should become a member of the respective guild.
+ This will grant him or her access to the guild's academy and possibly other resources. Some skills may be transferred
+ outside of the regular guild curriculum, either as quest rewards or through other events.<p class="paragraph"/>Note: player guilds are called orders in Little Goblin.<p class="paragraph"/><h3>Ideas for guilds</h3><p class="paragraph"/>While currently not implemented, guilds may become controlled or influenced by players. Also guild membership
+may later on depend on reputation or quests.
+ 
+
+
+<h2 id="items">3.7 Items</h2>
+Items are among the most complex features of Little Goblin. 
+A player character may own any number of them, and they may have special uses and effects which can be activated
+ when the time is right.<p class="paragraph"/><h2>Item types</h2><p class="paragraph"/>All items have a specific item type which defines:<p class="paragraph"/><h3>Required slots</h3><p class="paragraph"/>To equip an item (so it can be used), one or more free equipment slots are necessary.
+An equipment slot may be a body part (an iron helmet requires a free head slot) or,
+in a later version of the framework, a space ship (a photon torpedo needs a weapons bay).<p class="paragraph"/>Current equipment slot types (in the reference implementation - you are free to change them in
+your game):
+<ul class="star">
+<li>head</li>
+<li>neck</li>
+<li>body</li>
+<li>hand</li>
+<li>finger</li>
+<li>legs</li>
+<li>feet</li>
+</ul><p class="paragraph"/>A character may have more than one of each slot type (of course, having two heads only makes
+sense if you play an Ettin...)<p class="paragraph"/><h3>Attributes</h3><p class="paragraph"/>An item may have any number of item attributes. A sword of flames will have a weapon attribute of type
+"fire" and a corresponding damage modified. Combat attributes are used to calculate damage - a sword of 
+fire will do more damage against an ice monster.<p class="paragraph"/>Current combat attributes include:
+<ul class="star">
+<li>fire</li>
+<li>acid</li>
+<li>water</li>
+<li>cold</li>
+<li>electricity</li>
+<li>death</li>
+<li>light</li>
+<li>chaos</li>
+<li>sound</li>
+<li>poision</li>
+<li>shards</li>
+<li>normal</li>
+</ul><p class="paragraph"/><h3>Item categories</h3><p class="paragraph"/>Categories are used group items according to their basic aspects, you can think of them as tags for 
+item properties. For example, a magic potion of healing will belong to the categories 'potion' and 'magic'
+<ul class="minus">
+<li>and perhaps 'healing', if you expect to have a lot of healing items. Shops will not always carry</li>
+</ul><p class="paragraph"/>items of all categories and some may in fact only carry potions or weapons.<p class="paragraph"/>Initial item categories (for the handful of test items):
+<ul class="star">
+<li>potion</li>
+<li>magic</li>
+<li>mushroom</li>
+<li>metal</li>
+<li>armor</li>
+<li>weapon</li>
+</ul><p class="paragraph"/> 
+<h3>Combat damage</h3><p class="paragraph"/>A weapon is simply defined as an item which has a combat dice value set. Dice determine the base
+damage an item will do via the formula ( number of sides * number of dice) + bonus value. You can name
+your dice and reuse them for different items, for example "Dice: short swords" or "Dice: Phasers".<p class="paragraph"/>h3 Stackable and package size<p class="paragraph"/>Items may be combined to stacks. The package size determines the amount of this items you will receive
+from a shop keeper. For example, buying "a dozen arrows" will add a stack of 12 arrows to your quiver.<p class="paragraph"/><h3>Usable and rechargeable items</h3><p class="paragraph"/>Some items can be used (activated) to create special effects, which may consume the item or reduce its
+ life expectancy by one. A potion will have only one use, while a laster blaster may have a 100 shots
+  before it can be recharged.<p class="paragraph"/><h3>Value and availability</h3><p class="paragraph"/>Availability is currently defined in 0.1% steps - so it's a number from 0 to 1000. Items with an 
+  availability of zero will never be found in a shop, while others will be on sale some or all the time.
+The base value of an item is used to calculate the price a shop keeper will pay for it.<p class="paragraph"/><h2>Item properties</h2><p class="paragraph"/>An item has other properties besides its type. Those are:
+<ul class="star">
+<li>an owner: a Creature (may be a mob, but most likely it's a player character)</li>
+<li>a location: currently, two location types are defined: ON_PERSON and AT_HOME</li>
+<li>a gold value: game events may change the value of an item.</li>
+<li>amount: for stacked items, default is 1</li>
+<li>equipped flag: true if the item is currently in use.</li>
+<li>number of uses left</li>
+<li>resources: an item may be designed to be used as a production resource in crafting.</li>
+</ul><p class="paragraph"/>    A player may choose between several stacks of raw materials to use for a product,
+    and the chosen stack is marked internally for consumption.
+
+
+<h2 id="crafting">3.8 Crafting</h2>
+Crafting in games can be defined as the controlled and repeatable creation of items by player characters,
+ based on their personal resources (materials, skills, time).<p class="paragraph"/>The Little Goblin crafting system allows for production of all kinds of items that a character might want to use.
+To create an item, a PC should have a corresponding crafting skill, the material components and the proper tools.
+As with many other online games, crafting takes time - you can define how long it will take a player to create
+an item.<p class="paragraph"/><h3>Tools</h3><p class="paragraph"/>Many crafting systems require the presence of components, but few consider the use of multiple tools for crafting.
+Little Goblin offers the chance to create recipes for items that define what other non-consumable items the player
+(or, later on, his order) has to own to craft a new item.<p class="paragraph"/>At the moment, the quality of tools is not mapped to the crafted item's quality, but that could be an interesting
+ idea for further extensions.<p class="paragraph"/><h3>Production lines</h3><p class="paragraph"/>Currently, a player can start the production of create several items of a each kind, as long as he has the required 
+components to create at least one item of this type. When the required time is up, the code checks if the resources
+are available and then generates the item. 
+So it is possible to start a "create 99 gold-tipped arrows, which requires 10 hours"
+production task while owning only one gold nugget, and then start another process to 
+"create 98 gold nuggets from gold ore in 9 hours"<p class="paragraph"/>Note: Work in progress: The crafting and the skill learning system currently rely on external "ticks", that is http calls
+to the API made by a cron job, which causes specific service classes to check if items are to be generated or skills
+will be learned by characters etc. This is sub-optimal and will be replaced by background-threads in the future.<p class="paragraph"/><h4>Design considerations</h4><p class="paragraph"/>A more "realistic" way would be to subtract the required resources each time an item is generated, but on the other
+hand it is a better system than requiring all resources up front, which would mean that in our example the player has 
+to login after 9 hours, when the 99 gold nuggets are ready, and then create the next 10 hour job of crafting the arrows.
+This leads to unhealthy gaming patterns where players will stay up late or rise early, 
+just to submit a task to an online game on time.<p class="paragraph"/><p class="paragraph"/> 
+
+
+<h2 id="orders">3.9 Orders</h2>
+Players may create orders (which are called guilds in some games). An order offers a means to
+communicate with friends by using the Chatterbox (private chat channel on the order page).<p class="paragraph"/>Each player may create his or her own order and wait for other players to send application messages
+for their characters, which can be accepted or denied. The founder of a guild is also its master.
+A player character may only be the member of one order.<p class="paragraph"/><h3>Roadmap for orders</h3><p class="paragraph"/>Orders are currently very simple. They will probably be extended to include:
+<ul class="star">
+<li>A treasure chest for exchanging items for free.</li>
+<li>A production / crafting facility to share tools / machines.</li>
+<li>An organization chart for large orders.</li>
+<li>The option to add a logo and a more detailed description.</li>
+</ul><p class="paragraph"/>
+
+
+<h2 id="quests">3.10 Quests</h2>
+Quests are multi-step events that a player character experiences and whose outcome is more or less dependent on the
+player's choices and possible random factors.<p class="paragraph"/>Quests are granted by a QuestGiver, a non-player-character, which may have a short description and an introductory
+text. The player decides whether to take on a quest or leave it. If the player character dies or runs away from a 
+quest, it is counted as failed and cannot be repeated.<p class="paragraph"/>Each quest consists of several steps, which are QuestStep objects chained together by the game designer. You can
+create extremely long quests, with random encounters and scripted outcomes depending on special circumstances. It
+  is even possible to have looping quests. For example, if the player returns repeatedly to a series of quest steps,
+  until he makes the correct (or final) decision which ends the quest successfully or causes it to fail.<p class="paragraph"/>At the end of quest (or, by script, during a quest step), rewards can be given to a character. Those may take the
+ form of items or non-material bonuses like reputation changes. The reference implementation has an example quest
+ where the player decides if he wants to rescue an elven girl and reunite her with her family or give her to 
+ the dwarves. The decision results in a change to reputation with both factions (elves and dwarves).<p class="paragraph"/>Entry criteria for quests are planned, but not implemented yet. For example, I would like to implement reputation
+dependent quests - if a player character is known as a friend of the gnomes, he may get some quests from them&#8230;
+
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>

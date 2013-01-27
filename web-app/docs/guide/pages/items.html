@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>3.7 Items 0.3.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>3.7 Items - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+
+                    <p><strong>Version:</strong> 0.3.0</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h2 id="items">3.7 Items</h2>
+Items are among the most complex features of Little Goblin. 
+A player character may own any number of them, and they may have special uses and effects which can be activated
+ when the time is right.<p class="paragraph"/><h2>Item types</h2><p class="paragraph"/>All items have a specific item type which defines:<p class="paragraph"/><h3>Required slots</h3><p class="paragraph"/>To equip an item (so it can be used), one or more free equipment slots are necessary.
+An equipment slot may be a body part (an iron helmet requires a free head slot) or,
+in a later version of the framework, a space ship (a photon torpedo needs a weapons bay).<p class="paragraph"/>Current equipment slot types (in the reference implementation - you are free to change them in
+your game):
+<ul class="star">
+<li>head</li>
+<li>neck</li>
+<li>body</li>
+<li>hand</li>
+<li>finger</li>
+<li>legs</li>
+<li>feet</li>
+</ul><p class="paragraph"/>A character may have more than one of each slot type (of course, having two heads only makes
+sense if you play an Ettin...)<p class="paragraph"/><h3>Attributes</h3><p class="paragraph"/>An item may have any number of item attributes. A sword of flames will have a weapon attribute of type
+"fire" and a corresponding damage modified. Combat attributes are used to calculate damage - a sword of 
+fire will do more damage against an ice monster.<p class="paragraph"/>Current combat attributes include:
+<ul class="star">
+<li>fire</li>
+<li>acid</li>
+<li>water</li>
+<li>cold</li>
+<li>electricity</li>
+<li>death</li>
+<li>light</li>
+<li>chaos</li>
+<li>sound</li>
+<li>poision</li>
+<li>shards</li>
+<li>normal</li>
+</ul><p class="paragraph"/><h3>Item categories</h3><p class="paragraph"/>Categories are used group items according to their basic aspects, you can think of them as tags for 
+item properties. For example, a magic potion of healing will belong to the categories 'potion' and 'magic'
+<ul class="minus">
+<li>and perhaps 'healing', if you expect to have a lot of healing items. Shops will not always carry</li>
+</ul><p class="paragraph"/>items of all categories and some may in fact only carry potions or weapons.<p class="paragraph"/>Initial item categories (for the handful of test items):
+<ul class="star">
+<li>potion</li>
+<li>magic</li>
+<li>mushroom</li>
+<li>metal</li>
+<li>armor</li>
+<li>weapon</li>
+</ul><p class="paragraph"/> 
+<h3>Combat damage</h3><p class="paragraph"/>A weapon is simply defined as an item which has a combat dice value set. Dice determine the base
+damage an item will do via the formula ( number of sides * number of dice) + bonus value. You can name
+your dice and reuse them for different items, for example "Dice: short swords" or "Dice: Phasers".<p class="paragraph"/>h3 Stackable and package size<p class="paragraph"/>Items may be combined to stacks. The package size determines the amount of this items you will receive
+from a shop keeper. For example, buying "a dozen arrows" will add a stack of 12 arrows to your quiver.<p class="paragraph"/><h3>Usable and rechargeable items</h3><p class="paragraph"/>Some items can be used (activated) to create special effects, which may consume the item or reduce its
+ life expectancy by one. A potion will have only one use, while a laster blaster may have a 100 shots
+  before it can be recharged.<p class="paragraph"/><h3>Value and availability</h3><p class="paragraph"/>Availability is currently defined in 0.1% steps - so it's a number from 0 to 1000. Items with an 
+  availability of zero will never be found in a shop, while others will be on sale some or all the time.
+The base value of an item is used to calculate the price a shop keeper will pay for it.<p class="paragraph"/><h2>Item properties</h2><p class="paragraph"/>An item has other properties besides its type. Those are:
+<ul class="star">
+<li>an owner: a Creature (may be a mob, but most likely it's a player character)</li>
+<li>a location: currently, two location types are defined: ON_PERSON and AT_HOME</li>
+<li>a gold value: game events may change the value of an item.</li>
+<li>amount: for stacked items, default is 1</li>
+<li>equipped flag: true if the item is currently in use.</li>
+<li>number of uses left</li>
+<li>resources: an item may be designed to be used as a production resource in crafting.</li>
+</ul><p class="paragraph"/>    A player may choose between several stacks of raw materials to use for a product,
+    and the chosen stack is marked internally for consumption.
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>

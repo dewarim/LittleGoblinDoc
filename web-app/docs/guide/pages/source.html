@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>2.2 Installing the source code 0.3.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+                    <div class="toc-item next-right"><a href="../../guide/features.html"><strong>3</strong><span>Features</span> >></a></div>
+                
+
+
+                <div class="project">
+                    <h1>2.2 Installing the source code - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+
+                    <p><strong>Version:</strong> 0.3.0</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h2 id="source">2.2 Installing the source code</h2>
+<h2>Checkout the source code</h2><p class="paragraph"/>You can get the source code from the <a href="https://github.com/dewarim/LittleGoblin" target="blank">Little Goblin GitHub repository</a><p class="paragraph"/>It is available as a <a href="https://github.com/dewarim/LittleGoblin/downloads" target="blank">zip or tar archive</a> or (recommended) 
+as a git repository which you can clone via  
+bq. git clone git://github.com/dewarim/LittleGoblin.git<p class="paragraph"/><h3>Prerequisites to running from source</h3>
+<ul class="star">
+<li>you need Java, a database and the configuration file - see <a href="../guide/single.html#binary" class="guide">Binary install instructions</a>.</li>
+<li>Grails - which you will find on <a href="http://grails.org" target="blank">Grails.org</a></li>
+</ul><p class="paragraph"/>After you have installed the dependencies, use the command line to run Grails in Little Goblin's main directory:
+<code>grails</code> and start the application with <code>run-app</code><p class="paragraph"/><h3>Use as a plugin</h3><p class="paragraph"/>Add the following line to your Grails application's BuildConfig.groovy (in the plugins section):<p class="paragraph"/><div class="code"><pre>compile: ':little&#45;goblin:0.3.1'</pre></div><p class="paragraph"/>As a starting point, look at the BootStrap.groovy code in the plugin's source on how to populate the database
+with essential objects like an admin user. You can login to your application via http://localhost:8080/$appName/portal/landing,
+where $appName stands for your Grails application's name. Then it's time to begin customizing the game engine and 
+to add your own content. (Extensive documentation on how to do this will follow - if anything is unclear or does not work,
+please to not hesitate to <a href="https://github.com/dewarim/LittleGoblinDoc/issues/" target="blank">ask or add an issue</a> )
+ 
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+                    <div class="toc-item next-right"><a href="../../guide/features.html"><strong>3</strong><span>Features</span> >></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>

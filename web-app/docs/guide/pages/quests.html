@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>3.10 Quests 0.3.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>3.10 Quests - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+
+                    <p><strong>Version:</strong> 0.3.0</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h2 id="quests">3.10 Quests</h2>
+Quests are multi-step events that a player character experiences and whose outcome is more or less dependent on the
+player's choices and possible random factors.<p class="paragraph"/>Quests are granted by a QuestGiver, a non-player-character, which may have a short description and an introductory
+text. The player decides whether to take on a quest or leave it. If the player character dies or runs away from a 
+quest, it is counted as failed and cannot be repeated.<p class="paragraph"/>Each quest consists of several steps, which are QuestStep objects chained together by the game designer. You can
+create extremely long quests, with random encounters and scripted outcomes depending on special circumstances. It
+  is even possible to have looping quests. For example, if the player returns repeatedly to a series of quest steps,
+  until he makes the correct (or final) decision which ends the quest successfully or causes it to fail.<p class="paragraph"/>At the end of quest (or, by script, during a quest step), rewards can be given to a character. Those may take the
+ form of items or non-material bonuses like reputation changes. The reference implementation has an example quest
+ where the player decides if he wants to rescue an elven girl and reunite her with her family or give her to 
+ the dwarves. The decision results in a change to reputation with both factions (elves and dwarves).<p class="paragraph"/>Entry criteria for quests are planned, but not implemented yet. For example, I would like to implement reputation
+dependent quests - if a player character is known as a friend of the gnomes, he may get some quests from them&#8230;
+
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>2.1 Installing the binary package 0.3.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.
+</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+                    <div class="toc-item next-right"><a href="../../guide/features.html"><strong>3</strong><span>Features</span> >></a></div>
+                
+
+
+                <div class="project">
+                    <h1>2.1 Installing the binary package - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+
+                    <p><strong>Version:</strong> 0.3.0</p>
+
+                    
+                </div>
+
+                
+
+                
+
+<h2 id="binary">2.1 Installing the binary package</h2>
+Please install / configure the following software packages to get started with the Little Goblin binary package:<p class="paragraph"/><h3>Download the binary package</h3><p class="paragraph"/>Download the binary package <a href="http://download.littlegoblin.de/files/current/goblin.war" target="blank">Little Goblin Binary</a><p class="paragraph"/><h3>Java</h3>
+Download and install the Java 7 runtime from http://java.com/<p class="paragraph"/>On Ubuntu: sudo apt-get install openjdk-7-jre<p class="paragraph"/><h3>Tomcat 7</h3>
+Download and install Tomcat 7 from http://tomcat.apache.org<p class="paragraph"/>On Ubuntu, use: sudo apt-get install tomcat7<p class="paragraph"/><h3>Install an RDBMS (Database)</h3><p class="paragraph"/>Download a database and configure it, either: <a href="http://mysql.com" target="blank">MySQL</a>
+or <a href="http://postgresql.org" target="blank">Postgresql</a> (the latter is recommended).<p class="paragraph"/>Create a database user "goblin" with password "goblin" (for testing)<p class="paragraph"/>If you want to use mysql, please download the database driver and place it into
+your Tomcat's lib folder. (It is not included in the goblin.war for license reasons.)<p class="paragraph"/><h3>Configure your version</h3><p class="paragraph"/>Create in you home directory a folder .grails
+and inside a file goblin-config.groovy. 
+You can download an example version from
+<a href="https://github.com/dewarim/LittleGoblin/blob/master/goblin-config.example.groovy" target="blank">GitHub</a>
+<ul class="star">
+<li>Set the serverUrl to your machine's or server's name (http://localhost or your domain name)</li>
+<li>Edit the database settings for the production database.</li>
+</ul><p class="paragraph"/>If you want to create a new database on every server start and delete the old data,  
+keep the setting of dbCreate="create". Otherwise, set it to dbCreate="none".<p class="paragraph"/>If you have any questions, you can:
+<ul class="star">
+<li>Ask on the <a href="https://sourceforge.net/mailarchive/forum.php?forum_name=littlegoblin-main" target="blank">project mailing list</a></li>
+<li>Add a question to the <a href="https://github.com/dewarim/LittleGoblin/issues" target="blank">issue tracker on GitHub</a></li>
+<li>Write me a mail: ingo_wiarda@dewarim.de</li>
+</ul><p class="paragraph"/>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+                    <div class="toc-item next-right"><a href="../../guide/features.html"><strong>3</strong><span>Features</span> >></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>
