@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>3.6 Guilds 0.3.2</title>
+    <title>4.2 The landing page 0.3.2</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -59,18 +59,16 @@ function addJsClass() {
             <div id="main" class="corner-all">
 
                 
-                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
+                    <div class="toc-item prev-left"><a href="../../guide/features.html">&lt;&lt; <strong>3</strong><span>Features</span></a></div>
                 
 
                 <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
 
                 
-                    <div class="toc-item next-right"><a href="../../guide/implementation.html"><strong>4</strong><span>Plugin Usage</span> >></a></div>
-                
 
 
                 <div class="project">
-                    <h1>3.6 Guilds - Reference Documentation</h1>
+                    <h1>4.2 The landing page - Reference Documentation</h1>
 
                     <p><strong>Authors:</strong> </p>
 
@@ -83,22 +81,36 @@ function addJsClass() {
 
                 
 
-<h2 id="guilds">3.6 Guilds</h2>
-Guilds in Little Goblin represent trade associations, much like the medieval guilds which were created by craftsmen
-seeking to build communities of like-minded professionals. They jealously guard the secrets of their trades and
-seek to create a monopolistic power structure where the only people who are allowed to practice (and capable, due 
-to the control of information) the trade, are those who belong to the guild.<p class="paragraph"/>In game terms, a player character who wishes to learn a craft should become a member of the respective guild.
- This will grant him or her access to the guild's academy and possibly other resources. Some skills may be transferred
- outside of the regular guild curriculum, either as quest rewards or through other events.<p class="paragraph"/>Note: player guilds are called orders in Little Goblin.<p class="paragraph"/><h3>Ideas for guilds</h3><p class="paragraph"/>While currently not implemented, guilds may become controlled or influenced by players. Also guild membership
-may later on depend on reputation or quests.
- 
+<h2 id="landing">4.2 The landing page</h2>
+A browsergame starts with a landing page, where the visitor gets a first impression on what the site is all about.<p class="paragraph"/>The landing page is mostly static. It can be found in grails-app/views/portal/landing.gsp<p class="paragraph"/>It contains the following parts:
+<ul class="star">
+<li>The links to the login and registration pages</li>
+<li>The optional Facebook like button</li>
+<li>A language chooser (currently supported: French and English)</li>
+<li>Some information about Little Goblin</li>
+</ul><p class="paragraph"/>The layout is governed by a special file, the sitemesh layout definition in grails-app/views/layouts/main.gsp.<p class="paragraph"/>If you want to change the general look and feel, making changes to main.gsp is the easiest way to get this done.
+This file also includes the CSS responsible for styling the HTML elements. That file can be found in
+web-app/css/main.css.<p class="paragraph"/>So, to change the landing page, you can start with:
+<ul class="star">
+<li>grails-app/views/portal/landing.gsp</li>
+<li>grails-app/views/layouts/main.gsp</li>
+<li>web-app/css/main.css</li>
+</ul><p class="paragraph"/>To activate the Facebook like button, edit your application-config.groovy file (named after your application,
+ for example goblin-config.groovy) and add:<p class="paragraph"/><div class="code"><pre>facebook &#123;
+    // <span class="java&#45;keyword">this</span> enables Facebook&#45;JavaScript snippets on your landing page:
+    enabled=<span class="java&#45;keyword">true</span>
+    // show the like button:
+    enableLikeButton = <span class="java&#45;keyword">true</span><p class="paragraph"/>    // <span class="java&#45;keyword">if</span> set to <span class="java&#45;keyword">true</span>, allow login via Facebook &#45; not implemented yet.
+    enableFacebookLogin = <span class="java&#45;keyword">false</span><p class="paragraph"/>     // your server's URL and Facebook appId
+    myUrl = 'http://schedim.de/'
+    appId = '217240194988212'
+&#125;</pre></div>
+
 
 
                 <div style="clear:both;margin-top:15px;"></div>
                 
-                    <div class="toc-item prev-left"><a href="../../guide/installation.html">&lt;&lt; <strong>2</strong><span>Installation</span></a></div>
-                
-                    <div class="toc-item next-right"><a href="../../guide/implementation.html"><strong>4</strong><span>Plugin Usage</span> >></a></div>
+                    <div class="toc-item prev-left"><a href="../../guide/features.html">&lt;&lt; <strong>3</strong><span>Features</span></a></div>
                 
                 <div style="clear:both"></div>
             </div>

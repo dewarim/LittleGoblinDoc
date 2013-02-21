@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>4 Plugin Usage 0.3.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <ul>
+        <li>
+            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                <a href="../guide/index.html" class="button">Table of contents</a>
+
+                <div id="nav-summary-childs" style="display:none;">
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/installation.html"><strong>2</strong><span>Installation</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/features.html"><strong>3</strong><span>Features</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/implementation.html"><strong>4</strong><span>Plugin Usage</span></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        <li class="separator selected">
+            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+        </li>
+    </ul>
+</div>
+<div id="header">
+    <div class="images clearfix">
+        
+        
+    </div>
+    <p>Little Goblin is a browser game framework written in Grails.</p>
+</div>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../guide/features.html">&lt;&lt; <strong>3</strong><span>Features</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>4 Plugin Usage - Reference Documentation</h1>
+
+                    <p><strong>Authors:</strong> </p>
+
+                    <p><strong>Version:</strong> 0.3.2</p>
+
+                    
+                </div>
+
+                
+                <div id="table-of-content">
+                    <h2>Table of Contents</h2>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#create"><strong>4.1</strong><span>How to create a new game</span></a>
+                    </div>
+                    
+                    <div class="toc-item" style="margin-left:0px"><a href="#landing"><strong>4.2</strong><span>The landing page</span></a>
+                    </div>
+                    
+                </div>
+                
+
+                
+
+<h1 id="implementation">4 Plugin Usage</h1>
+So, you want to create your own game. That's great.<p class="paragraph"/>This chapter describes how to create a new game by using the Little Goblin plugin.
+As an example I will use the reference implementation, which is currently (as of version 0.3.2)
+a part of the main plugin, but should really be put into a separate application to
+keep framework and individual game mechanics apart.<p class="paragraph"/>So follow along for a tour &#8230; you can find the source code at GitHub:
+<a href="https://github.com/dewarim/schedim" target="blank">Schedim source code</a>
+
+
+
+<h2 id="create">4.1 How to create a new game</h2>
+<h3>A new app</h3><p class="paragraph"/>Create a new grails application. On the command line type:<p class="paragraph"/><div class="code"><pre>grails create&#45;app schedim</pre></div><p class="paragraph"/>Of course, it would be nice if you were to come up with your own name instead of Schedim ;)
+Schedim are a kind of mythological creatures from the Kabbalah (elemental spirits).<p class="paragraph"/>Grails creates a new application in a folder by the given name (schedim). Open the application
+in your favorite IDE, for example Eclipse STS or IntelliJ IDEA. It is also a good idea to
+create a repository for the software in a source code management system like git or subversion.
+If you got your game in a SCM (and keep backups...), you do not have to fear losing your code
+or breaking it beyond repair by making changes to it.<p class="paragraph"/>Your new grails application should start out looking like this:<p class="paragraph"/><img border="0" class="center" src="../img/game/new_grails_app.png"></img><p class="paragraph"/>In the new application, open grails-app/conf/BuildConfig.groovy and add the line<p class="paragraph"/><div class="code"><pre>compile &#34;:goblin:3.0.2&#34;</pre></div><p class="paragraph"/>to the dependencies closure.<p class="paragraph"/>If you now type<p class="paragraph"/><div class="code"><pre>grails
+    // waiting some time
+    grails run&#45;app
+    // waiting some more</pre></div><p class="paragraph"/>You will see a message like "Server running. Browse to http://localhost:8080/schedim"
+If you visit this URL, you will see something like the following:<p class="paragraph"/><img border="0" class="center" src="../img/game/raw_game.png"></img><p class="paragraph"/>The many controllers are provided by Little Goblin. But since the database is still empty
+and no start page has been defined, we still have some work to do.<p class="paragraph"/><h3>Landing page configuration</h3><p class="paragraph"/>As you can see, the default page of the new game leaves something to be desired. But we can
+redirect visitors from the base URL to a page of our own choosing.<p class="paragraph"/>In the file grails-app/conf/UrlMappings.groovy, modify the static mappings definition:<p class="paragraph"/><div class="code"><pre>class UrlMappings &#123;
+    <span class="java&#45;keyword">static</span> mappings = &#123;
+      <span class="java&#45;quote">"/$controller/$action?/$id?"</span>&#123;
+	      constraints &#123;<p class="paragraph"/>		  &#125;
+	  &#125;
+      <span class="java&#45;quote">"/"</span>(view:<span class="java&#45;quote">"/portal/landing"</span>)
+	  <span class="java&#45;quote">"500"</span>(view:'/error')
+	&#125;
+&#125;</pre></div><p class="paragraph"/>Now, if you visit http://localhost:8080/schedim, you should be redirected to the Little Goblin's
+default <a href="../guide/single.html#landing" class="guide">landing page</a>:<p class="paragraph"/><img border="0" class="center" src="../img/game/first_landing_page.png"></img><p class="paragraph"/>This still does not look like the test server's page, but it's a start.<p class="paragraph"/><h3>Database installation</h3><p class="paragraph"/>You may run your game entirely from RAM without any persistent database installed.
+But while this is great for testing (you get a new database with every start), for a
+production setting it will probably be less than ideal, because you loose your entire game state
+once the server shuts down.<p class="paragraph"/>If you want to go beyond an in-memory setup, you should install a proper database like 
+<a href="http://www.postgresql.org" target="blank">Postgresql</a> - this is easy to setup. On Windows, you can use PgAdmin 
+which comes with the database executable to setup a first database called schedim, with 
+ a user goblin and password goblin.<p class="paragraph"/>If you decide to go with Postgresql (you could also use MySQL or MS-SQLserver etc),
+please add the following postgresql driver to you dependencies closure in BuildConfig.groovy:<p class="paragraph"/><div class="code"><pre>dependencies&#123;    
+        // automatically download and install the Postgresql driver:
+        runtime 'postgresql:postgresql:9.1&#45;901.jdbc4'
+        // or use the MySQL one:
+        // runtime 'mysql:mysql&#45;connector&#45;java:5.1.20'
+    &#125;</pre></div><p class="paragraph"/>Please note that depending on the Postgresql or Mysql configuration, you may need to allow
+connections from localhost:<p class="paragraph"/><div class="code"><pre>&#45;&#45;&#45; in pg_hba.conf: add a separate line:
+ host	schedim	     all	127.0.0.1/32	      trust</pre></div><p class="paragraph"/><h3>Database configuration</h3><p class="paragraph"/>Next you will need to configure the connection to the database. This is stored in /grails-app/conf/DataSource.groovy<p class="paragraph"/>There are three distinct environments under which your game will be running - 
+<ul class="star">
+<li>development, which means you run it via run-app from the Grails console.</li>
+<li>test, during testing the game will be running with the in-memory H2 database (leave settings as-are).</li>
+<li>production, which is activated when the schedim.war is deployed into a Tomcat (or other) server.</li>
+</ul><p class="paragraph"/>Add the following settings to your DataSource.groovy:<p class="paragraph"/><div class="code"><pre>environments&#123;
+    development &#123;
+		dataSource &#123;
+			dbCreate = <span class="java&#45;quote">"update"</span>
+			pooling = <span class="java&#45;keyword">true</span>
+			logSql = <span class="java&#45;keyword">false</span>
+			driverClassName = <span class="java&#45;quote">"org.postgresql.Driver"</span>
+            dialect = <span class="java&#45;quote">"org.hibernate.dialect.PostgreSQLDialect"</span>
+            url = <span class="java&#45;quote">"jdbc:postgresql://127.0.0.1:5432/schedim"</span>			
+			username = 'goblin'
+			password = 'goblin'
+		&#125;<p class="paragraph"/>	&#125;<p class="paragraph"/>	production &#123;
+		dataSource &#123;
+			dbCreate = <span class="java&#45;quote">"update"</span>
+			pooling = <span class="java&#45;keyword">true</span>
+            logSql = <span class="java&#45;keyword">false</span><p class="paragraph"/>            driverClassName = <span class="java&#45;quote">"org.postgresql.Driver"</span>
+            dialect = <span class="java&#45;quote">"org.hibernate.dialect.PostgreSQLDialect"</span>
+            url = <span class="java&#45;quote">"jdbc:postgresql://127.0.0.1:5432/schedim"</span>
+			username = 'goblin'
+			password = 'goblin'
+            autoReconnect = <span class="java&#45;keyword">true</span>
+            properties &#123;
+                maxActive = &#45;1
+                minEvictableIdleTimeMillis=1800000
+                timeBetweenEvictionRunsMillis=1800000
+                numTestsPerEvictionRun=3
+                testOnBorrow=<span class="java&#45;keyword">true</span>
+                testWhileIdle=<span class="java&#45;keyword">true</span>
+                testOnReturn=<span class="java&#45;keyword">true</span>
+                validationQuery=<span class="java&#45;quote">"SELECT 1"</span>
+            &#125;
+		&#125;
+	&#125;
+&#125;</pre></div><p class="paragraph"/>If you are using MySQL, use the following lines:<p class="paragraph"/><div class="code"><pre>driverClassName = <span class="java&#45;quote">"com.mysql.jdbc.Driver"</span>
+		dialect = 'org.hibernate.dialect.MySQL5InnoDBDialect'
+		url = <span class="java&#45;quote">"jdbc:mysql://localhost:3306/schedim"</span></pre></div><p class="paragraph"/>Note the setting for dbCreate: currently they are all set to update,
+so that Grails tries to add anything new you create. It should not delete
+any database tables or otherwise break something, just add new stuff.<p class="paragraph"/>Once you have a production-ready game, you should set dbCreate to 'none'
+in the production environment settings.<p class="paragraph"/><h3>Security configuration</h3><p class="paragraph"/>Little Goblin uses the Grails Spring Security Plugin to enable authentication and authorization of
+ users. You may of course decide to use another security mechanism (or write a game that does not
+ require a login...) but I recommend you just use the following settings in your Config.groovy - 
+ after all, Little Goblin is about reducing the time for setup.<p class="paragraph"/><div class="code"><pre>grails.plugins.springsecurity.userLookup.userDomainClassName = 'de.dewarim.goblin.UserAccount'
+ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'de.dewarim.goblin.UserRole'
+ grails.plugins.springsecurity.authority.className = 'de.dewarim.goblin.Role'
+ grails.plugins.springsecurity.userLookup.passwordPropertyName = 'passwd'
+ grails.plugins.springsecurity.authority.nameField = 'name'
+ grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/portal/start'
+ grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'username'</pre></div><p class="paragraph"/>You may have noticed the defaultTargetUrl: by changing this you can determine to which page a user
+ will be redirected after login by default. In this case it's the start action of the portal controller.<p class="paragraph"/>If you now visit the login page and try to login with the default test user,
+you will see an error message - which is perfectly ok at this moment, since there are no users
+in the database.<p class="paragraph"/><img border="0" class="center" src="../img/game/first_failed_login.png"></img>
+First failed login: your game is secure...<p class="paragraph"/><h3>Adding data</h3><p class="paragraph"/>At the moment, your database is completely empty - it should contain just the tables for the 
+Little Goblin domain classes, but not a single row of data. That is about to change...<p class="paragraph"/>// TODO
+
+
+<h2 id="landing">4.2 The landing page</h2>
+A browsergame starts with a landing page, where the visitor gets a first impression on what the site is all about.<p class="paragraph"/>The landing page is mostly static. It can be found in grails-app/views/portal/landing.gsp<p class="paragraph"/>It contains the following parts:
+<ul class="star">
+<li>The links to the login and registration pages</li>
+<li>The optional Facebook like button</li>
+<li>A language chooser (currently supported: French and English)</li>
+<li>Some information about Little Goblin</li>
+</ul><p class="paragraph"/>The layout is governed by a special file, the sitemesh layout definition in grails-app/views/layouts/main.gsp.<p class="paragraph"/>If you want to change the general look and feel, making changes to main.gsp is the easiest way to get this done.
+This file also includes the CSS responsible for styling the HTML elements. That file can be found in
+web-app/css/main.css.<p class="paragraph"/>So, to change the landing page, you can start with:
+<ul class="star">
+<li>grails-app/views/portal/landing.gsp</li>
+<li>grails-app/views/layouts/main.gsp</li>
+<li>web-app/css/main.css</li>
+</ul><p class="paragraph"/>To activate the Facebook like button, edit your application-config.groovy file (named after your application,
+ for example goblin-config.groovy) and add:<p class="paragraph"/><div class="code"><pre>facebook &#123;
+    // <span class="java&#45;keyword">this</span> enables Facebook&#45;JavaScript snippets on your landing page:
+    enabled=<span class="java&#45;keyword">true</span>
+    // show the like button:
+    enableLikeButton = <span class="java&#45;keyword">true</span><p class="paragraph"/>    // <span class="java&#45;keyword">if</span> set to <span class="java&#45;keyword">true</span>, allow login via Facebook &#45; not implemented yet.
+    enableFacebookLogin = <span class="java&#45;keyword">false</span><p class="paragraph"/>     // your server's URL and Facebook appId
+    myUrl = 'http://schedim.de/'
+    appId = '217240194988212'
+&#125;</pre></div>
+
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../guide/features.html">&lt;&lt; <strong>3</strong><span>Features</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>

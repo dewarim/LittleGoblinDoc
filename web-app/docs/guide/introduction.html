@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>1 Introduction 0.3.0</title>
+    <title>1 Introduction 0.3.2</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -33,6 +33,9 @@ function addJsClass() {
                     <div class="toc-item" style="margin-left:0"><a href="../guide/features.html"><strong>3</strong><span>Features</span></a>
                     </div>
                     
+                    <div class="toc-item" style="margin-left:0"><a href="../guide/implementation.html"><strong>4</strong><span>Plugin Usage</span></a>
+                    </div>
+                    
                 </div>
             </div>
         </li>
@@ -46,8 +49,7 @@ function addJsClass() {
         
         
     </div>
-    <p>Little Goblin is a browser game framework written in Grails.
-</p>
+    <p>Little Goblin is a browser game framework written in Grails.</p>
 </div>
 
 
@@ -68,9 +70,9 @@ function addJsClass() {
                 <div class="project">
                     <h1>1 Introduction - Reference Documentation</h1>
 
-                    <p><strong>Authors:</strong> Ingo Wiarda</p>
+                    <p><strong>Authors:</strong> </p>
 
-                    <p><strong>Version:</strong> 0.3.0</p>
+                    <p><strong>Version:</strong> 0.3.2</p>
 
                     
                 </div>
@@ -110,12 +112,20 @@ in short this means you can use it for commercial and non-commercial purposes an
 
 
 <h2 id="changes">1.1 Change Log</h2>
-<strong class="bold">Version 0.3.1 "Resume"</strong>
+<strong class="bold">Version 0.3.2 "Tick-Tock"</strong>
 <ul class="star">
+<li>Fixed #3: add gameName config parameter as default title to pages.</li>
+<li>Changed: Run game ticks in a background thread (no more need for a cron job to run ticks).</li>
+<li>Fixed #14: Version link in footer was broken.</li>
+</ul><p class="paragraph"/><strong class="bold">Version 0.3.1 "Resume"</strong>
+<ul class="star">
+<li>Fixed: admin can edit ItemTypes again.</li>
+<li>New: admin can assign categories to item types.</li>
+<li>Fixed: inputValidationService no longer croaks on 'null'-String.</li>
+<li>Cleanup code.</li>
 <li>Added more documentation (items, guilds)</li>
 <li>Project is now language level Java 7</li>
-<li>Upgraded to Grails 2.2.0</li>
-<li>Code cleanup</li>
+<li>Grails 2.2.0</li>
 </ul><p class="paragraph"/><strong class="bold">Version 0.3.0 "Cleanup"</strong> 
 (a lot of internal changes)
 <ul class="star">
