@@ -12,6 +12,7 @@
 	<h1><g:message code="changes.head"/></h1>
 	<p><g:message code="changes.intro"/></p>
 	<ul>
+        <li><g:message code="changes.0.8.1"/></li>
         <li><g:message code="changes.0.8.0"/></li>
         <li><g:message code="changes.0.7.1"/></li>
         <li><g:message code="changes.0.7"/></li>
