@@ -205,7 +205,7 @@ bq. git clone git://github.com/dewarim/LittleGoblin.git<p class="paragraph"/><h3
 <li>you need Java, a database and the configuration file - see <a href="../guide/single.html#binary" class="guide">Binary install instructions</a>.</li>
 <li>Grails - which you will find on <a href="http://grails.org" target="blank">Grails.org</a></li>
 </ul><p class="paragraph"/>After you have installed the dependencies, use the command line to run Grails in Little Goblin's main directory:
-<code>grails</code> and start the application with <code>run-app</code><p class="paragraph"/><h3>Use as a plugin</h3><p class="paragraph"/>Add the following line to your Grails application's BuildConfig.groovy (in the plugins section):<p class="paragraph"/><div class="code"><pre>compile: ':little&#45;goblin:0.3.1'</pre></div><p class="paragraph"/>As a starting point, look at the BootStrap.groovy code in the plugin's source on how to populate the database
+<code>grails</code> and start the application with <code>run-app</code><p class="paragraph"/><h3>Use as a plugin</h3><p class="paragraph"/>Add the following line to your Grails application's BuildConfig.groovy (in the plugins section):<p class="paragraph"/><div class="code"><pre>compile ':little&#45;goblin:0.3.2'</pre></div><p class="paragraph"/>As a starting point, look at the BootStrap.groovy code in the plugin's source on how to populate the database
 with essential objects like an admin user. You can login to your application via http://localhost:8080/$appName/portal/landing,
 where $appName stands for your Grails application's name. Then it's time to begin customizing the game engine and 
 to add your own content. (Extensive documentation on how to do this will follow - if anything is unclear or does not work,
@@ -477,7 +477,7 @@ Schedim are a kind of mythological creatures from the Kabbalah (elemental spirit
 in your favorite IDE, for example Eclipse STS or IntelliJ IDEA. It is also a good idea to
 create a repository for the software in a source code management system like git or subversion.
 If you got your game in a SCM (and keep backups...), you do not have to fear losing your code
-or breaking it beyond repair by making changes to it.<p class="paragraph"/>Your new grails application should start out looking like this:<p class="paragraph"/><img border="0" class="center" src="../img/game/new_grails_app.png"></img><p class="paragraph"/>In the new application, open grails-app/conf/BuildConfig.groovy and add the line<p class="paragraph"/><div class="code"><pre>compile &#34;:goblin:3.0.2&#34;</pre></div><p class="paragraph"/>to the dependencies closure.<p class="paragraph"/>If you now type<p class="paragraph"/><div class="code"><pre>grails
+or breaking it beyond repair by making changes to it.<p class="paragraph"/>Your new grails application should start out looking like this:<p class="paragraph"/><img border="0" class="center" src="../img/game/new_grails_app.png"></img><p class="paragraph"/>In the new application, open grails-app/conf/BuildConfig.groovy and add the line<p class="paragraph"/><div class="code"><pre>compile ':goblin:0.3.2'</pre></div><p class="paragraph"/>to the dependencies closure.<p class="paragraph"/>If you now type<p class="paragraph"/><div class="code"><pre>grails
     // waiting some time
     grails run&#45;app
     // waiting some more</pre></div><p class="paragraph"/>You will see a message like "Server running. Browse to http://localhost:8080/schedim"

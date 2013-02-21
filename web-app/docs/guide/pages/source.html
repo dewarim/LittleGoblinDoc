@@ -91,7 +91,7 @@ bq. git clone git://github.com/dewarim/LittleGoblin.git<p class="paragraph"/><h3
 <li>you need Java, a database and the configuration file - see <a href="../guide/single.html#binary" class="guide">Binary install instructions</a>.</li>
 <li>Grails - which you will find on <a href="http://grails.org" target="blank">Grails.org</a></li>
 </ul><p class="paragraph"/>After you have installed the dependencies, use the command line to run Grails in Little Goblin's main directory:
-<code>grails</code> and start the application with <code>run-app</code><p class="paragraph"/><h3>Use as a plugin</h3><p class="paragraph"/>Add the following line to your Grails application's BuildConfig.groovy (in the plugins section):<p class="paragraph"/><div class="code"><pre>compile: ':little&#45;goblin:0.3.1'</pre></div><p class="paragraph"/>As a starting point, look at the BootStrap.groovy code in the plugin's source on how to populate the database
+<code>grails</code> and start the application with <code>run-app</code><p class="paragraph"/><h3>Use as a plugin</h3><p class="paragraph"/>Add the following line to your Grails application's BuildConfig.groovy (in the plugins section):<p class="paragraph"/><div class="code"><pre>compile ':little&#45;goblin:0.3.2'</pre></div><p class="paragraph"/>As a starting point, look at the BootStrap.groovy code in the plugin's source on how to populate the database
 with essential objects like an admin user. You can login to your application via http://localhost:8080/$appName/portal/landing,
 where $appName stands for your Grails application's name. Then it's time to begin customizing the game engine and 
 to add your own content. (Extensive documentation on how to do this will follow - if anything is unclear or does not work,
