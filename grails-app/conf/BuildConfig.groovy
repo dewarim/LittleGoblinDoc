@@ -2,8 +2,8 @@ grails.servlet.version = "3.0"
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
-grails.project.target.level = 1.7
-grails.project.source.level = 1.7
+grails.project.target.level = 1.8
+grails.project.source.level = 1.8
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 grails.project.war.file = "target/${appName}.war"
 grails.project.dependency.resolution = {
@@ -15,14 +15,13 @@ grails.project.dependency.resolution = {
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
         mavenLocal()
-        grailsPlugins()
         grailsHome()
         grailsCentral()
 
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
         //mavenLocal()
-        //mavenCentral()
+        mavenCentral()
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -35,7 +34,6 @@ grails.project.dependency.resolution = {
     }
 
     plugins{
-        build ":tomcat:$grailsVersion"
-        compile ":release:2.2.0"
+        build ":tomcat:8.0.14.1"
     }
 }
